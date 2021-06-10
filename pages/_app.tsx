@@ -1,7 +1,13 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
-export default MyApp
+import { withTina } from "tinacms";
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />;
+};
+
+export default withTina(MyApp, {
+  enabled: process.env.NODE_ENV !== "production",
+  sidebar: true,
+});
